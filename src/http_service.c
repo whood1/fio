@@ -12,17 +12,30 @@ void test() {
 static void on_http_request(http_s *h) {
   /* set a response and send it (finnish vs. destroy). */
 
-  //FIOBJ path = fiobj_hash_get(h->path, HTTP_HEADER_HOST);
-  //fio_str_info_s path_buf= fiobj_obj2cstr(path);
-  //printf("\n%s\n", path_buf.data);
+  //FIOBJ n;
+  fio_str_info_s path_buf= fiobj_obj2cstr(h->path);
+  printf("\nPATH:%s\n", path_buf.data);
+
+
   
   //open file
   FILE *fp;
   char buffer[512];
   int chars = 0;
   //char current_char;
+
+  printf("\n strcmp: %d \n", strcmp(path_buf.data, "/chat.html"));
+
+  if (strcmp(path_buf.data, "/chat.html") == 0) {
+    printf("\n Chat Loaded\n");
+    fp = fopen("../assets/chat.html", "r");
+  }
+  else {
+    printf("\nIndex loaded\n");
+    fp = fopen("../assets/index.html", "r");  
+  }
   
-  fp = fopen("../assets/index.html", "r");
+  
   if (!fp) { printf("Error\n"); }
   else {
 
