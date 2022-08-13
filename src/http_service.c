@@ -4,6 +4,7 @@
 
 void test() {
   printf("test worked\n");
+  
   return;
 }
 
@@ -11,6 +12,10 @@ void test() {
 static void on_http_request(http_s *h) {
   /* set a response and send it (finnish vs. destroy). */
 
+  //FIOBJ path = fiobj_hash_get(h->path, HTTP_HEADER_HOST);
+  //fio_str_info_s path_buf= fiobj_obj2cstr(path);
+  //printf("\n%s\n", path_buf.data);
+  
   //open file
   FILE *fp;
   char buffer[512];
