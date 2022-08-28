@@ -5,6 +5,8 @@
 static void on_http_upgrade(http_s *h, char * target, long unsigned int len) {
   
   printf("\n -WEBSOCKET UPGRADE--\n");
+
+  //TODO Test if its a websocket request
   
   //websocket_connect("ws://localhost:3000/chat.html");
   http_upgrade2ws(h, 0);

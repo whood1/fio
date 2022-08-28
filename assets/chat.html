@@ -3,7 +3,30 @@
     <title>
 	Chat
     </title>
+
+    <script>
+
+     
+     function connect_to_websocket() {
+	 console.log("client connecting to websocket\n");
+
+	 let ws = new WebSocket("ws://localhost:3000/chat.html");
+
+	 
+
+	 //	 const req = new XMLHttpRequest();
+	 //	 req.addEventListener("load", reqListener);
+	 //	 req.open("GET", "http://localhost:3000/chat.html");
+	 //	 req.send;
+	 //console.log(req.response);
+     }
+    </script>
+    
     <body>
 	Chat
+	<button onclick="connect_to_websocket()">
+	    Open Websocket
+	</button>
+
     </body>
 </html>
